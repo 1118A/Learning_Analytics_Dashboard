@@ -1,0 +1,167 @@
+/*!
+  * Tailwind CSS v3.4.4
+  * https://tailwindcss.com
+  */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-size: 16px;
+    --font-family: "Inter", "Inter Fallback", sans-serif;
+    --font-family-hindi: "Noto Sans Devanagari", "Inter", "Inter Fallback", sans-serif;
+    --font-family-gujarati: "Noto Sans Gujarati", "Inter", "Inter Fallback", sans-serif;
+    --font-family-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+
+    /* Core & Design System Colors */
+    --background: #ffffff;
+    --foreground: #1a1a2e;
+    --card: #ffffff;
+    --card-foreground: #1a1a2e;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a2e;
+    --primary: #ff6b35;
+    --primary-foreground: #ffffff;
+    --secondary: #2e86ab;
+    --secondary-foreground: #ffffff;
+    --muted: #f3f4f6;
+    --muted-foreground: #6b7280;
+    --accent: #f8f9fa;
+    --accent-foreground: #1a1a2e;
+    --destructive: #ef4444;
+    --destructive-hover: #dc2626;
+    --destructive-foreground: #ffffff;
+    --border: #e5e7eb;
+    --input: transparent;
+    --input-background: #f3f4f6;
+    --switch-background: #d1d5db;
+    --ring: #2e86ab;
+    --whatsapp: #25d366;
+
+    --ds-primary: #ff6b35;
+    --ds-primary-hover: #e55a2b;
+    --ds-secondary: #2e86ab;
+    --ds-success: #22c55e;
+    --ds-error: #ef4444;
+    --ds-surface: #f8f9fa;
+    --ds-text-dark: #1a1a2e;
+    --ds-text-body: #374151;
+    --ds-text-light: #6b7280;
+    --ds-bg-white: #ffffff;
+    --ds-bg-alt: #f8f9fa;
+    --ds-bg-warm: #fff7ed;
+    --ds-border: #e5e7eb;
+
+    /* Brand & Portal Colors */
+    --brand-primary: #4f46e5;
+    --brand-primary-dark: #3730a3;
+    --brand-primary-light: #eef2ff;
+    --brand-ai: #7c3aed;
+    --brand-ai-light: #f5f3ff;
+    --brand-accent: #f59e0b;
+    --brand-accent-dark: #d97706;
+    --brand-accent-light: #fffbeb;
+    --brand-emerald: #059669;
+    --brand-risk: #e11d48;
+    --brand-dark: #0f172a;
+    --brand-mid: #475569;
+    --brand-soft: #94a3b8;
+    --brand-surface: #ffffff;
+    --brand-background: #f8fafc;
+    --brand-border: #e2e8f0;
+
+    /* Sidebar & Topbar */
+    --sidebar: #1a1a2e;
+    --sidebar-foreground: #ffffff;
+    --sidebar-primary: #ff6b35;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #2d2d44;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: #2d2d44;
+    --sidebar-ring: #ff6b35;
+
+    --sidebar-bg: #0f172a;
+    --sidebar-text: #94a3b8;
+    --sidebar-text-hover: #f8fafc;
+    --sidebar-hover-bg: #1e293b;
+    --sidebar-active-bg: #4f46e5;
+    --sidebar-section-label: #475569;
+    --sidebar-width: 240px;
+    --sidebar-collapsed-width: 64px;
+    --topbar-height: 64px;
+    --topbar-bg: #ffffff;
+    --topbar-border: #e2e8f0;
+
+    /* Charts */
+    --chart-1: oklch(64.6% 0.222 41.116);
+    --chart-2: oklch(60% 0.118 184.704);
+    --chart-3: oklch(39.8% 0.07 227.392);
+    --chart-4: oklch(82.8% 0.189 84.429);
+    --chart-5: oklch(76.9% 0.188 70.08);
+
+    /* Radii, Spacing, Transitions & Z-Index */
+    --radius: 0.625rem;
+    --ds-card-radius: 16px;
+    --ds-btn-radius: 12px;
+    --ds-badge-radius: 9999px;
+    --content-max-width: 1280px;
+    --content-padding: 24px;
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --z-sticky: 20;
+    --z-dropdown: 40;
+    --z-modal: 50;
+    --z-toast: 60;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px #0000000d;
+    --shadow-md: 0 4px 12px #00000014;
+    --shadow-lg: 0 8px 24px #0000001f;
+    --shadow-cta: 0 4px 14px #ff6b3566;
+    --shadow-cta-hover: 0 6px 20px #ff6b3580;
+    --shadow-card: 0 2px 16px #0000000f;
+    --shadow-card-hover: 0 8px 24px #0000001f;
+    --shadow-whatsapp: 0 4px 14px #25d36666;
+    --shadow-card-brand: 0 1px 3px #00000014;
+    --shadow-elevated-brand: 0 4px 12px #0000001a;
+    --shadow-modal-brand: 0 8px 24px #00000026;
+  }
+
+  * {
+    @apply border-border box-border;
+  }
+
+  body {
+    @apply bg-background text-font-antialiased antialiased;
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Apply font families for specific scripts */
+  .font-hindi {
+    font-family: var(--font-family-hindi);
+  }
+
+  .font-gujarati {
+    font-family: var(--font-family-gujarati);
+  }
+
+  .font-mono {
+    font-family: var(--font-family-mono);
+  }
+}
+
+/* Remove default Grok font-family if present */
+@layer utilities {
+  .font-geist-sans,
+  .font-geist-mono {
+    font-family: inherit !important;
+  }
+}
