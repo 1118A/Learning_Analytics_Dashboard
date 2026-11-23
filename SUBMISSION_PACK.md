@@ -11,7 +11,7 @@
 ### Item 1: Live Links
 
 - **Live Deployed Dashboard (Vercel):**  
-  👉 **`https://learning-analytics-dashboard.vercel.app`** *(or your custom project domain on Vercel)*
+  👉 **`https://learninganalyticsdashboard-xi.vercel.app/`**
 - **GitHub Source Repository:**  
   👉 **[https://github.com/1118A/Learning_Analytics_Dashboard](https://github.com/1118A/Learning_Analytics_Dashboard)**
 - **Local Development / Verification Server:**  
