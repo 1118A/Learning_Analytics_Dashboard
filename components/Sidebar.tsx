@@ -132,22 +132,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Mobile Backdrop */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 bg-slate-950/70 z-40 md:hidden backdrop-blur-sm transition-opacity duration-300"
           onClick={onCloseMobile}
         />
       )}
 
       {/* Aside Container */}
       <aside
-        className={`fixed left-0 top-0 bottom-0 z-50 border-r border-sidebar-border bg-sidebar text-sidebar-foreground transition-all duration-300 flex flex-col font-sans ${
-          mobileOpen ? "translate-x-0 w-[270px]" : "-translate-x-full md:translate-x-0"
+        className={`fixed left-0 top-0 bottom-0 z-50 border-r border-[#1a233a] bg-[#0b0f19] text-slate-100 transition-all duration-300 flex flex-col font-sans ${
+          mobileOpen ? "translate-x-0 w-[275px]" : "-translate-x-full md:translate-x-0"
         } ${collapsed ? "md:w-[72px]" : "md:w-[280px]"}`}
       >
         <div className="flex h-full flex-col">
           {/* Header & Logo */}
-          <div className="h-16 flex items-center justify-between px-4 border-b border-sidebar-border bg-sidebar flex-shrink-0">
-            <Link href="/" className="flex items-center gap-3 overflow-hidden">
-              <div className="h-9 w-9 rounded-xl bg-primary/20 text-primary border border-primary/30 flex items-center justify-center flex-shrink-0">
+          <div className="h-16 flex items-center justify-between px-4 border-b border-[#1a233a] bg-[#0b0f19]/90 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-3 overflow-hidden group">
+              <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-orange-600 text-white flex items-center justify-center flex-shrink-0 shadow-glow group-hover:scale-105 transition-transform">
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2L2 7l10 5 10-5-10-5z" />
                   <path d="M2 17l10 5 10-5" />
@@ -155,26 +155,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </svg>
               </div>
               <div className={`flex flex-col min-w-0 ${collapsed ? "md:hidden" : "block"}`}>
-                <span className="text-sm font-bold tracking-tight text-sidebar-foreground leading-tight">
+                <span className="text-sm font-black tracking-tight text-white leading-tight">
                   OULAD Analytics
                 </span>
-                <span className="text-[10px] text-sidebar-text">EasySkillOS Project 1</span>
+                <span className="text-[10px] font-semibold text-slate-400">EasySkillOS Project 1</span>
               </div>
             </Link>
 
             {onToggleCollapse && (
               <button
                 onClick={onToggleCollapse}
-                className="hidden md:flex p-1.5 rounded-lg hover:bg-sidebar-hover-bg text-sidebar-text hover:text-sidebar-text-hover transition-colors"
+                className="hidden md:flex p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
                 aria-label="Toggle sidebar width"
               >
                 {collapsed ? (
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="13 17 18 12 13 7" />
                     <polyline points="6 17 11 12 6 7" />
                   </svg>
                 ) : (
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="11 17 6 12 11 7" />
                     <polyline points="18 17 13 12 18 7" />
                   </svg>
@@ -185,7 +185,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {onCloseMobile && (
               <button
                 onClick={onCloseMobile}
-                className="md:hidden p-1.5 rounded-lg hover:bg-sidebar-hover-bg text-sidebar-text"
+                className="md:hidden p-1.5 rounded-lg hover:bg-slate-800 text-slate-400"
                 aria-label="Close menu"
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -198,8 +198,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
           {/* Nav Items */}
           <nav className="flex-1 py-4 px-2.5 overflow-y-auto space-y-1 scrollbar-hide">
-            <div className={`px-2.5 pb-2 text-[10px] font-bold uppercase tracking-wider text-sidebar-text/80 ${collapsed ? "md:hidden" : "block"}`}>
-              Navigation
+            <div className={`px-2.5 pb-2 text-[10px] font-extrabold uppercase tracking-widest text-slate-500 ${collapsed ? "md:hidden" : "block"}`}>
+              Platform Navigation
             </div>
             {NAV_SECTIONS.map((section) => {
               const isActive = activeSection === section.key;
@@ -213,12 +213,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   title={collapsed ? section.label : undefined}
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 group ${
                     isActive
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "text-sidebar-text hover:bg-sidebar-hover-bg hover:text-sidebar-text-hover"
+                      ? "bg-gradient-to-r from-primary/20 via-primary/10 to-transparent text-white border-l-2 border-primary shadow-sm"
+                      : "text-slate-400 hover:bg-[#151d30] hover:text-white"
                   } ${collapsed ? "md:justify-center" : ""}`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <span className="flex-shrink-0">{section.icon("h-4 w-4")}</span>
+                    <span className={`flex-shrink-0 transition-colors ${isActive ? "text-primary" : "group-hover:text-white"}`}>
+                      {section.icon("h-4 w-4")}
+                    </span>
                     <span className={`${collapsed ? "md:hidden" : "block"} truncate`}>
                       {section.label}
                     </span>
@@ -226,10 +228,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                   {section.frBadge && !collapsed && (
                     <span
-                      className={`text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded ${
+                      className={`text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-md tracking-wider transition-colors ${
                         isActive
-                          ? "bg-white/20 text-white"
-                          : "bg-sidebar-accent text-sidebar-text group-hover:text-white"
+                          ? "bg-primary text-white"
+                          : "bg-slate-800 text-slate-400 group-hover:text-slate-200"
                       }`}
                     >
                       {section.frBadge}
@@ -241,12 +243,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </nav>
 
           {/* Footer Info */}
-          <div className="p-3 border-t border-sidebar-border bg-sidebar flex-shrink-0">
-            <div className={`flex items-center gap-2.5 p-2 rounded-xl bg-sidebar-accent/50 ${collapsed ? "md:justify-center" : ""}`}>
-              <div className="h-2 w-2 rounded-full bg-success flex-shrink-0 animate-pulse" />
+          <div className="p-3 border-t border-[#1a233a] bg-[#0b0f19] flex-shrink-0">
+            <div className={`flex items-center gap-2.5 p-2 rounded-xl bg-[#151d30]/60 border border-slate-800/40 ${collapsed ? "md:justify-center" : ""}`}>
+              <div className="relative flex h-2 w-2 flex-shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </div>
               <div className={`min-w-0 ${collapsed ? "md:hidden" : "block"}`}>
-                <p className="text-xs font-bold text-sidebar-foreground truncate">32,593 Students</p>
-                <p className="text-[10px] text-sidebar-text">Inter Font • 7 Modules • 13 Regions</p>
+                <p className="text-xs font-bold text-white truncate">32,593 Students</p>
+                <p className="text-[10px] text-slate-400 font-medium">Inter Latin • 7 Modules</p>
               </div>
             </div>
           </div>

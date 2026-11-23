@@ -22,7 +22,7 @@ An online academy sees thousands join but few finish. This portal provides unive
 - **Framework**: [Next.js 16.4.6](https://nextjs.org) (App Router, Turbopack)
 - **UI Library**: [React 19.3.0](https://react.dev)
 - **Styling**: [Tailwind CSS v4.3.3](https://tailwindcss.com) (native `@theme` variables)
-- **Typography**: Local **Inter Latin v20** (`inter-latin-v20.ttf`)
+- **Typography**: **Lexend Variable** (100–900 weight via local `/fonts/lexend.woff2` and `/fonts/lexend.ttf`)
 - **Testing**: Node.js Native Test Runner (`node:test`, `node:assert/strict`)
 - **Quality**: ESLint v9 (`eslint-config-next`)
 - **Language**: TypeScript 5.0+
