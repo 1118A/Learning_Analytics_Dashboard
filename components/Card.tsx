@@ -8,6 +8,7 @@ export interface CardProps {
   eyebrow?: string;
   takeaway?: string;
   actions?: ReactNode;
+  action?: ReactNode;
   children: ReactNode;
   footer?: ReactNode;
   className?: string;
@@ -19,16 +20,19 @@ export const Card: React.FC<CardProps> = ({
   eyebrow,
   takeaway,
   actions,
+  action,
   children,
   footer,
   className = "",
 }) => {
+  const actionContent = actions || action;
+
   return (
     <div
       className={`rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group ${className}`}
     >
       <div>
-        {(title || actions || eyebrow) && (
+        {(title || actionContent || eyebrow) && (
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-5">
             <div>
               {eyebrow && (
@@ -46,9 +50,9 @@ export const Card: React.FC<CardProps> = ({
               )}
             </div>
 
-            {actions && (
+            {actionContent && (
               <div className="flex items-center gap-2 flex-wrap self-start">
-                {actions}
+                {actionContent}
               </div>
             )}
           </div>
